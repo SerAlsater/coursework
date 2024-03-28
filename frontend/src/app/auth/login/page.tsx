@@ -7,7 +7,7 @@ import Header from "@/app/components/Header";
 import styles from "./auth.module.css"
 export default function login() {
     return (
-        <div className="">
+        <div>
             <Header/>
             <div className={styles.container}>
                 <div className={styles.authorize}>

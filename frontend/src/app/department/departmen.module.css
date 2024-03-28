@@ -1,0 +1,89 @@
+/* @import url('../styles/global.css')  */
+
+.container {
+    margin-left: 100px;
+    margin-top: 130px;
+}
+
+
+.budget_balance {
+    display: flex;
+    align-items: center;
+}
+
+.budget_balance_value {
+    margin-left: 200px;
+    width: 400px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: white;
+    border: none;
+    font-size: 40px;
+}
+
+
+.Applications_accept {
+    font-size: 48px;
+    margin-top: 130px;
+    margin-left: 100px;
+}
+
+.Applications_card {
+    background-color: #E3E4f5;
+    display: flex;
+    width: 90%;
+    border-radius: 20px; 
+    margin-left: 100px;
+}
+
+.worker, .goods, .count, .price, .summ, .status{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.data_about_goods {
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.buttons {
+    display: grid;
+    margin-left: 20px;
+}
+
+.Accept {
+    background-color: #43e934;
+    width: 200px;
+    height: 130px;
+    border: none;
+    border-radius: 15px;
+}
+
+.Accept_mark {
+    width: 100px;
+    height: 100px;
+}
+
+.Decline {
+    background-color: #eb6262;
+    width: 200px;
+    height: 130px;
+    border-radius: 15px;
+    border: none;
+
+}
+
+.Decline_mark {
+    width: 100px;
+    height: 100px;
+    
+    
+}

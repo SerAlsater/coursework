@@ -1,0 +1,123 @@
+.container {
+    margin-left: 100px;
+    margin-top: 130px;
+}
+
+.Status {
+    font-size: 60px;
+}
+
+.Bill {
+    display: flex;
+    align-items: center;
+    margin-top: 120px;
+
+}
+
+.Bill_word {
+    font-size: 48px;
+
+}
+
+.Input_Bill {
+    margin-left: 530px;
+    width: 400px;
+    height: 80px;
+    border-radius: 20px;
+    outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    font-size: 24px;
+    border: none;
+}
+
+.Save_bill {
+    margin-left: 40px;
+    width: 400px;
+    height: 80px;
+
+    border-radius: 20px;
+    border: none;
+
+    background-color: #43E934;
+    color: white;
+
+    font-size: 40px;
+}
+
+.download_data_img{
+    width: 63px;
+    height: 63px;
+    color: black;
+}
+
+.Funds {
+    display: flex;
+    align-items: center;
+    margin-top: 90px;
+}
+
+.Funds_spent {
+    font-size: 48px;
+}
+
+.Show_spent {
+    margin-left: 200px;
+    width: 400px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: white;
+    border: none;
+    font-size: 40px;
+}
+
+.Download_data {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.download_data_btn {
+    margin-left: 10px;
+    width: 500px;
+    height: 80px;
+
+    border-radius: 20px;
+    border: none;
+    background-color: none;
+
+    font-size: 32px;
+}
+
+.photo {
+    margin-left: 20px;
+}
+
+.Applications_accept {
+    font-size: 48px;
+    margin-top: 130px;
+}
+
+.Applications_card {
+    background-color: #E3E4f5;
+    display: flex;
+    width: 830px;
+    border-radius: 20px; 
+}
+
+.worker, .goods, .count, .price, .summ, .status{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.data_about_goods {
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
