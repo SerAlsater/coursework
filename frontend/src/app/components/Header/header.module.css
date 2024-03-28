@@ -1,0 +1,17 @@
+.header {
+    height: 120px;
+    background-color: #DBF4A7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar {
+    height: 42px;
+    width: 42px;
+    color: black;
+    margin-right: 100px;
+}
+
+.Name {
+    margin-left: 100px;
+}

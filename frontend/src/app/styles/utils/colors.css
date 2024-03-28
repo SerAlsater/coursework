@@ -1,0 +1,27 @@
+:root {
+  --bg-dark: #000000;
+  --bg-persik: #FAEEDD;
+  --bg-white: #FFFFFF;
+  --bg-green: #449214;
+
+  --t-dark: #000000;
+
+  --t-white: #FFFFFF;
+
+  --c-accent-green: #53b01a;
+  --c-accent-green2: #60be25;
+  
+  --c-accent-blue: #4516FF;
+  --c-accent-blue2: #3D12E9;
+  --c-accent-blue3: #3810D9;
+  --c-accent-blue4: #2100A3;
+  --c-accent-blue5: #896BFF;
+  --c-accent-blue6: #A892FF;
+
+  --c-hover1: rgba(69, 22, 255, 0.1);
+  --c-hover2: rgba(69, 22, 255, 0.16);
+  --c-hover3: rgba(69, 22, 255, 0.24);
+
+
+  --c-accent-blue-hover: #A892FF;
+}
