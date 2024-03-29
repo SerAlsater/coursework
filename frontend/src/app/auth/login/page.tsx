@@ -3,11 +3,11 @@ import { hasCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useState } from "react";
 import axios, { AxiosError } from "axios";
-import Header from "@/app/components/Header";
+import Header from "@/components/Header";
 import styles from "./auth.module.css"
 export default function login() {
     return (
-        <div>
+        <div className={styles.main}>
             <Header/>
             <div className={styles.container}>
                 <div className={styles.authorize}>

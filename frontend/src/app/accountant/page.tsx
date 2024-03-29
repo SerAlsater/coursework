@@ -1,8 +1,10 @@
-import Header from "../components/Header"
+import Header from "@/components/Header"
 import styles from "./accountant.module.css"
 import download from "./download_data.svg"
 import accept from "./accept.svg"
 import Image from "next/image"
+import pens from "./pens.jpg"
+
 
 export default function Accountant() {
     return (
@@ -49,8 +51,8 @@ export default function Accountant() {
                     </div>
 
                     <div className={styles.Applications_card}>
-                        <div className={styles.photo}>
-                            <img src="./pens.jpg"/>
+                        <div >
+                            {/* <Image className={styles.photo} src={pens} alt=""/> */}
                         </div>
                         <div className={styles.data_about_goods}>
                             <div className={styles.worker}>

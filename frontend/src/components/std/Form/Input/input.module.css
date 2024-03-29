@@ -1,0 +1,30 @@
+.input, .textarea {
+  width: 100%;
+  padding: 15px;
+  height: 46px;
+
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02rem;
+  font-weight: 400;
+
+  background-color: var(--t-white);
+
+  color: var(--t-dark);
+  border-bottom: 1px solid var(--t-dark15);
+}
+
+.input:hover, .textarea:hover {
+  border-bottom: 1px solid var(--t-dark60);
+}
+
+.input:focus, .textarea:focus {
+  border-bottom: 1px solid var(--t-dark);
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+  text-align: justify;
+  -moz-text-align-last: center;
+}

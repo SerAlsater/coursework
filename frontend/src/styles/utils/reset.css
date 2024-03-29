@@ -4,14 +4,12 @@
 ----------------------------------------------------------------
 */
 
-/* *{
+*{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: white;
-
-} */
+}
 
 body {
 	font-family: "Montserrat", sans-serif;
@@ -71,7 +69,7 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 1px solid black;
+    border: none;
     border-radius: 10px;
     padding: 10px 14px;
 }
@@ -147,7 +145,7 @@ select:-webkit-autofill:focus {
 .slider .swiper-autoheight, .slider .swiper-autoheight .swiper-slide {
     height: 100% !important;
 }
-  
+
 .slider .swiper-wrapper {
     height: unset !important;
 }

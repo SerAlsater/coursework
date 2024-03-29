@@ -1,0 +1,19 @@
+{
+  "error": {
+    "en" : "Request error!",
+    "ru" : "Произошла ошибка!"
+  },
+  "error_desc" : {
+    "en" : "please, try again",
+    "ru" : "пожалуйста попробуйте еще раз"
+  },
+
+  "thanks": {
+    "en" : "Thank you for request!",
+    "ru" : "Заявка принята"
+  },
+  "contact" : {
+    "en" : "We will contact you soon.",
+    "ru" : "Мы скоро с вами свяжемся"
+  }
+}

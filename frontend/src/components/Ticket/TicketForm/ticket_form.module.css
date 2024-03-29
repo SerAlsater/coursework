@@ -1,0 +1,12 @@
+.form {
+  flex-direction: row;
+  margin-top: 15px;
+  gap: 15px;
+  align-items: stretch;
+}
+
+.btn {
+  width: 75px;
+  border-radius: 10px;
+  height: unset;
+}

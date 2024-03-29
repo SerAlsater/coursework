@@ -1,30 +1,26 @@
 import Header from "@/components/Header"
-import styles from "./departmen.module.css"
+import add from "./add.svg"
+import styles from "./employee.module.css"
 import Image from "next/image"
+import clock from "./clock.svg"
+import photo from "./pns.jpg"
 import accept from "./accept.svg"
-import decline from "./decline.svg"
 
-export default function Department() {
+export default function Employee() {
     return (
-        <div>
+        <div className={styles.main}>
             <Header/>
-            {/* <div className={styles.container}>
-                <div className={styles.budget_balance}>
-                    <h1 className={styles.budget_balance_word}>Остаток бюджета</h1>
-                    <input type="text" placeholder="1000" className={styles.budget_balance_value} disabled/>
-                </div>
-            </div>
 
-            <div className={styles.Applications}>
+            {/* <div className={styles.Applications}>
                     <div >
-                        <h1 className={styles.Applications_accept}>
-                            Ожидают подтверждения
+                        <h1 className={styles.My_Applications}>
+                            Мои заявки
                         </h1>
                     </div>
 
                     <div className={styles.Await_Applications_card}>
                         <div>
-                            <Image className={styles.photo} src={"./pns.jpg"} alt=""/>
+                            <Image className={styles.photo} src={"./pens.jpg"} alt=""/>
                         </div>
                         <div className={styles.data_about_goods}>
                             <div className={styles.worker}>
@@ -54,33 +50,53 @@ export default function Department() {
 
                             <div className={styles.status}>
                                 <h4>Статус</h4>
-                                <Image src={accept} alt=""/>
-                                <h4>Подтверждена</h4>
+                                <Image src={clock} alt=""/>
+                                <h4>Ожидает ответа</h4>
                             </div>
                             
-                        </div>
-                        <div className={styles.buttons}>
-                            <button className={styles.Accept}>
-                                <Image className={styles.Accept_mark} src={accept} alt=""/>
-                            </button>
-                            <button className={styles.Decline}>
-                                <Image className={styles.Decline_mark} src={decline} alt=""/>
-                            </button>
                         </div>
                         
                     </div>
                 </div>
 
+                <div className="">
+                    <h1 className={styles.create_application}>
+                        Создать заявку
+                    </h1>
+                    <div>
+                        <input type="text" placeholder="Поиск" name="" id="" className={styles.find_application}/>
+                    </div>
+                </div>
+
+                <div className={styles.Found_applications}>
+                    <div className={styles.found_applic}>
+                        <div className={styles.photo_name}>
+                            <Image alt="" src={photo} className={styles.photo_find}/>
+                            <div className={styles.name_appl}>
+                                <h3>Ручка</h3>
+                                <h3>100р</h3>
+                            </div>
+                        </div>
+                        <div className={styles.count_much}>
+                            <input type="text" className={styles.count_input}/>
+                            <button className={styles.plus_count}>
+                                <Image src={add} alt="" className={styles.add_img}/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div className={styles.Applications}>
                     <div >
-                        <h1 className={styles.Applications_accept}>
-                            Подтвержденные заявки
+                        <h1 className={styles.History_Applications}>
+                            История заявок
                         </h1>
                     </div>
 
                     <div className={styles.Accept_Applications_card}>
                         <div>
-                            <Image className={styles.photo} src={"./pns.jpg"} alt=""/>
+                            <Image className={styles.photo} src={"./pens.jpg"} alt=""/>
                         </div>
                         <div className={styles.data_about_goods}>
                             <div className={styles.worker}>
@@ -117,7 +133,7 @@ export default function Department() {
                         </div>
                     </div>
                 </div> */}
+
         </div>
-        
     )
 }

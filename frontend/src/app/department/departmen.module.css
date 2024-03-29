@@ -19,6 +19,7 @@
     background-color: white;
     border: none;
     font-size: 40px;
+    padding-left: 20px;
 }
 
 
@@ -28,7 +29,7 @@
     margin-left: 100px;
 }
 
-.Applications_card {
+.Await_Applications_card {
     background-color: #E3E4f5;
     display: flex;
     width: 90%;
@@ -51,12 +52,16 @@
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    margin: 20px 0 20px 0;
+    width: 400px;
 }
 
 
 .buttons {
-    display: grid;
     margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Accept {
@@ -78,12 +83,26 @@
     height: 130px;
     border-radius: 15px;
     border: none;
-
+    bottom: 0px;
 }
 
 .Decline_mark {
     width: 100px;
     height: 100px;
-    
-    
+}
+
+.Accept_Applications_card {
+    background-color: #E3E4f5;
+    display: flex;
+    width: 90%;
+    border-radius: 20px; 
+    margin-left: 100px;
+    width: 35%;
+}
+
+.photo {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
 }

@@ -42,54 +42,54 @@
 
 
 
-h1 {
+/* h1 {
 	font-size: 188px;
 	font-weight: 600;
-	/* line-height: 43px;
-	letter-spacing: -0.025em; */
+	line-height: 43px;
+	letter-spacing: -0.025em;
 }
 
 h2 {
 	font-size: 35px;
 	font-weight: 600;
-	/* line-height: 33px;
-	letter-spacing: -0.015em; */
+	line-height: 33px;
+	letter-spacing: -0.015em;
 }
 
 h3 {
 	font-size: 30px;
 	font-weight: 600;
-	/* line-height: 26px;
-	letter-spacing: -0.015em; */
+	line-height: 26px;
+	letter-spacing: -0.015em;
 }
 
 h4 {
 	font-size: 25px;
 	font-weight: 500;
-	/* line-height: 23px;
-	letter-spacing: -0.015em; */
+	line-height: 23px;
+	letter-spacing: -0.015em;
 }
 
 h5 {
 	font-size: 20px;
 	font-weight: 400;
-	/* line-height: 26px;
-	letter-spacing: 0em; */
+	line-height: 26px;
+	letter-spacing: 0em;
 }
 
 h6 {
 	font-size: 72px;
 	font-weight: 500;
-	/* line-height: 26px;
-	letter-spacing: 0em; */
-}
+	line-height: 26px;
+	letter-spacing: 0em;
+} */
 
-button {
+/* button {
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 25px;
 	letter-spacing: -0.02em;
-}
+} */
 
 p, span {
 	font-size: 15px;
@@ -121,5 +121,5 @@ ul {
 		background: var(--t-dark15);
 		margin-right: 8px;
 		margin-bottom: .1rem;
-	  }
+	}
 }
