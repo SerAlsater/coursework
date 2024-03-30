@@ -1,10 +1,9 @@
 .container {
-    margin-left: 100px;
-    margin-top: 130px;
+    margin-top: 70px;
 }
 
 .Status {
-    font-size: 60px;
+    font-size: 48px;
 }
 
 .Bill {
@@ -15,7 +14,7 @@
 }
 
 .Bill_word {
-    font-size: 48px;
+    font-size: 36px;
 
 }
 
@@ -58,7 +57,7 @@
 }
 
 .Funds_spent {
-    font-size: 48px;
+    font-size: 36px;
 }
 
 .Show_spent {
@@ -98,8 +97,9 @@
 }
 
 .Applications_accept {
-    font-size: 48px;
+    font-size: 36px;
     margin-top: 130px;
+    margin-bottom: 70px;
 }
 
 .Applications_card {

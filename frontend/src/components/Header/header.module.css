@@ -8,10 +8,7 @@
 .avatar {
     height: 42px;
     width: 42px;
-    color: black;
+    background-color: white;
+    border-radius: 25px;
     margin-right: 100px;
-}
-
-.Name {
-    margin-left: 100px;
 }
