@@ -6,13 +6,10 @@ import styles from "./ticket_form.module.css"
 import Form from "@/components/std/Form"
 
 type form_actions = {
+  onSend: (count?: number) => void
 }
 
 export default function TicketForm(props: form_actions) {
-
-  const onSend = () => {
-
-  }
 
   return (
     <div className={styles.form}>
@@ -26,7 +23,7 @@ export default function TicketForm(props: form_actions) {
         button_style={"primary"}
         button_text={"+"}
         curr_lang={"ru"}
-        action={onSend}
+        action={props.onSend}
         className={styles.form}
         success={<p>Заявка принята</p>}
         btn_className={styles.btn}

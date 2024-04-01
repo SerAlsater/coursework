@@ -19,7 +19,7 @@ type props = {
   button_style: "transparent" | "primary" | "secondary" | "white",
   button_text: string,
   curr_lang: string
-  action?: () => void,
+  action?: (count?: number) => void,
   success?: React.ReactNode,
   id?: string,
   className?: string,
@@ -75,7 +75,7 @@ export default function Form(props: props) {
     
     if (errored.length == 0) {
       set_sended(false);
-      props.action && props.action();
+      props.action && props.action(form_data.count);
 
       set_show_answer(prev => {
         return("success");

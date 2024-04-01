@@ -18,15 +18,15 @@
 }
 
 .accept {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .accept:hover {
-  background-color: greenyellow;
+  background-color: green;
 }
 
 .reject {
-  background-color: red;
+  background-color: lightcoral;
 }
 
 .reject:hover {

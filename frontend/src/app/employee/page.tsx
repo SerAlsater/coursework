@@ -1,13 +1,122 @@
-import Header from "@/components/Header"
-import add from "./add.svg"
+"use client"
 import styles from "./employee.module.css"
 import Image from "next/image"
 import clock from "./clock.svg"
-import pens from "./pns.jpg"
 import accept from "./accept.svg"
 import Ticket from "@/components/Ticket"
+import { useRouter } from "next/navigation"
+import { getCookie } from "cookies-next"
+import { useEffect, useState } from "react"
+import { product, user } from "@/types/form"
+import axios from "axios"
 
 export default function Employee() {
+
+    const router = useRouter();
+
+    const cookie_user = getCookie('user_data');
+    if (!cookie_user) {
+        router.push('/auth/login')
+    }
+    if (cookie_user) {
+        const data = JSON.parse(cookie_user);
+        if (data.Role != "employee") router.push('/' + data.Role);
+	}
+
+
+    type user_data = {
+        id: number,
+        attributes: user
+    }
+
+    //@ts-ignore
+    const [user_data, set_user] = useState<user_data>({id: 0, attributes: JSON.parse(cookie_user)});
+    const [all_products, set_products] = useState<Array<product>>([]);
+
+    const config = {
+        headers: {
+          "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
+          "Content-Type": "application/json"
+        }
+    }
+
+    useEffect(() => {
+
+        //@ts-ignore
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/workers?filters[Login][$eq]=${JSON.parse(cookie_user).Login}&populate=deep`, config).then((response) => {
+            set_user(response.data.data[0]);
+        })
+
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=deep`, config).then(res => {
+            set_products(res.data.data);
+        })
+
+    }, [router])
+
+    console.log(user_data)
+    const tickets = user_data.attributes.tickets?.data;
+    const active_tickets: JSX.Element[] = [];
+    const history_tickets: JSX.Element[] = [];
+
+    const product_forms = all_products.map((product) => {
+        console.log(product);
+
+        const onSend = (count?: number) => {
+
+            const data = JSON.stringify(
+                {
+                    data: {
+                        Count: count || 1, 
+                        product: product.id, 
+                        worker: user_data.id,
+                        Status: "pending"
+                    }
+                }
+            )
+
+            axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/tickets`, data, config).then(res => router.push("/auth/login"));
+        }
+
+        return (
+            <Ticket 
+            type={"form"}
+            img={product.attributes.Image.data.attributes.url}
+            description_info={{
+                product: product.attributes.Name,
+                price: product.attributes.Price,
+            }}
+            form_actions={{onSend}}/>
+        )
+    })
+
+    tickets?.forEach((ticket) => {
+
+        const product = ticket.attributes.product.data.attributes;
+        const user = ticket.attributes.worker?.data.attributes;
+
+        if (ticket.attributes.Status == "pending") {
+            active_tickets.push(
+            <Ticket type={"info"} img={product.Image.data.attributes.url} description_info={{
+                product: product.Name,
+                price: product.Price,
+                employer: user?.FIO,
+                count: ticket.attributes.Count,
+                status: ticket.attributes.Status
+            }}/>)
+        }
+        else {
+            history_tickets.push(
+                <Ticket type={"info"} img={product.Image.data.attributes.url} description_info={{
+                    product: product.Name,
+                    price: product.Price,
+                    employer: user?.FIO,
+                    count: ticket.attributes.Count,
+                    status: ticket.attributes.Status
+                }}/>
+            )
+        }
+    })
+
     return (
         <div className={styles.main}>
 
@@ -17,32 +126,17 @@ export default function Employee() {
                             Мои заявки
                         </h1>
                     </div>
-                    <Ticket type={"info"} img={""} description_info={{
-                        product: "Pen",
-                        price: 100,
-                        employer: "Иванов И. И.",
-                        count: 100,
-                        status: "accepted"
-                    }}/>
+                    {active_tickets}
             </div>
 
                 <div className="">
                     <h1 className={styles.create_application}>
                         Создать заявку
                     </h1>
-                    <div>
-                        <input type="text" placeholder="Поиск" name="" id="" className={styles.find_application}/>
-                    </div>
                 </div>
 
                 <div className={styles.Found_applications}>
-                <Ticket type={"form"} img={""} description_info={{
-                    product: "Pen",
-                    price: 100,
-                    employer: "Иванов И. И.",
-                    count: 100,
-                    status: "accepted"
-                }}/>
+                {product_forms}
                 </div>
 
 
@@ -53,13 +147,7 @@ export default function Employee() {
                         </h1>
                     </div>
 
-                    <Ticket type={"info"} img={""} description_info={{
-                    product: "Pen",
-                    price: 100,
-                    employer: "Иванов И. И.",
-                    count: 100,
-                    status: "accepted"
-                }}/>
+                    {history_tickets}
                 </div>
 
         </div>

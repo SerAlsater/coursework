@@ -19,7 +19,7 @@ export type ticket_data = {
   },
   accept_id?: number,
   form_actions?: {
-    onSend: () => void
+    onSend: (count?: number) => void
   }
 }
 
@@ -28,7 +28,7 @@ export default function Ticket(props: ticket_data) {
   return (
     <Card style="gray" className={styles.wrapper + " " + (props.type == "form" && styles.form_wrapper)}>
       <div className={styles.flex_wrapper}>
-        <Image src={test_img} alt="ticket_img" className={styles.image} height={250}/>
+        <Image src={`${process.env.NEXT_PUBLIC_API_URL}${props.img}`} alt="ticket_img" className={styles.image} height={250} width={250}/>
         <div className={styles.description}>
           {
             props.type == "form" ? 
@@ -57,11 +57,11 @@ export default function Ticket(props: ticket_data) {
           }
         </div>
         {
-          (props.type == "accept" && props.accept_id) && <AcceptActions id={props.accept_id}/>
+          (props.type == "accept" && props.accept_id) && <AcceptActions id={props.accept_id} summ={props.description_info.price * (props.description_info.count || 1)}/>
         }
       </div>
       {
-        (props.type == "form") && <TicketForm/>
+        (props.type == "form" && props.form_actions) && <TicketForm onSend={props.form_actions.onSend}/>
       }
     </Card>
   )

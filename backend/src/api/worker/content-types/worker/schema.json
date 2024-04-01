@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workers",
+  "info": {
+    "singularName": "worker",
+    "pluralName": "workers",
+    "displayName": "worker",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FIO": {
+      "type": "string"
+    },
+    "Login": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "string"
+    },
+    "Role": {
+      "type": "enumeration",
+      "enum": [
+        "accountant",
+        "department",
+        "employee"
+      ]
+    },
+    "tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ticket.ticket",
+      "mappedBy": "worker"
+    }
+  }
+}

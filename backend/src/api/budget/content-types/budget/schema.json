@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "budgets",
+  "info": {
+    "singularName": "budget",
+    "pluralName": "budgets",
+    "displayName": "Budget"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Budget": {
+      "type": "biginteger"
+    }
+  }
+}

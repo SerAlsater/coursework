@@ -2,6 +2,7 @@
   background-color: #E3E4F5;
   padding: 12px 20px;
   border-radius: 20px;
+  margin-bottom: 15px;
 }
 
 .flex_wrapper {
@@ -16,10 +17,11 @@
 }
 
 .image {
-  flex: 1;
   padding: 20px;
   border-radius: 20px;
   background: #F3F3F3;
+  height: 250px;
+  width: auto !important;
 }
 
 .image img {
