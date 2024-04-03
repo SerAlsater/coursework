@@ -9,8 +9,6 @@ export async function POST (
   try {
     const form_data = await req.json();
 
-    console.log(form_data);
-
     const find = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/workers?filters[Login][$eq]=${form_data.login}`, {
       headers: {
         "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,

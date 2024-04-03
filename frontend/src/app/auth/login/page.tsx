@@ -55,7 +55,7 @@ export default function login() {
 
         axios.post('/api/login', JSON.stringify({login: login.Login, password: login.Password})).then(res => {
             setCookie('user_data', res.data);
-            router.push('/' + res.data.Role);
+            router.refresh();
         }).catch((err: AxiosError) => {
             if (err.response) {
                 const status = err.response.status;

@@ -10,7 +10,6 @@ type form_actions = {
 }
 
 export default function TicketForm(props: form_actions) {
-
   return (
     <div className={styles.form}>
       <Form 

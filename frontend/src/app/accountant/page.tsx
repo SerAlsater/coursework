@@ -54,7 +54,6 @@ export default function Accountant() {
             let summ = 0;
             response.data.data.forEach((item: api_ticket) => {
                 summ += item.attributes.Count * item.attributes.product.data.attributes.Price;
-                console.log(summ);
             })
             set_spended(summ);
         })
@@ -79,13 +78,12 @@ export default function Accountant() {
 
     const send = () => {
         const data = JSON.stringify({data: {Budget: Number(balance)}});
-        console.log(data)
         axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/budget`, data, config).then(res => router.refresh())
     }
 
     const createFile = () => {
         const workbook = XLSX.utils.book_new();
-        const worksheet = XLSX.utils?.json_to_sheet(tickets.map(ticket => {
+        const tickets_stat = XLSX.utils?.json_to_sheet(tickets.map(ticket => {
             return {
                 Created: ticket.attributes.createdAt,
                 Confirmed: ticket.attributes.updatedAt,
@@ -96,7 +94,31 @@ export default function Accountant() {
                 Summ: ticket.attributes.product.data.attributes.Price * ticket.attributes.Count + "р"
             }
         }));
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Stats");
+
+        let products: any[] = [];
+
+        tickets.forEach(ticket => {
+            const product = ticket.attributes.product;
+            const count = ticket.attributes.Count;
+
+            if (!products.find(pr => pr.Name == product.data.attributes.Name)) {
+                products.push({...product.data.attributes, count})
+            } else {
+                products[products.findIndex(pr => pr.Name == product.data.attributes.Name)].count += count;
+            }
+        })
+
+        const product_stat = XLSX.utils?.json_to_sheet(products.map(product => {
+            return {
+                Name: product.Name,
+                Price: product.Price + "р",
+                Count: product.count,
+                Summ: product.Price * product.count + "р"
+            }
+        }));
+
+        XLSX.utils.book_append_sheet(workbook, tickets_stat, "Stats");
+        XLSX.utils.book_append_sheet(workbook, product_stat, "Products");
         XLSX.writeFile(workbook, `Stats.xlsx`);
     }
 

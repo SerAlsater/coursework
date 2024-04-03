@@ -32,6 +32,7 @@ export default function Employee() {
     //@ts-ignore
     const [user_data, set_user] = useState<user_data>({id: 0, attributes: JSON.parse(cookie_user)});
     const [all_products, set_products] = useState<Array<product>>([]);
+    const [filter, set_filter] = useState("");
 
     const config = {
         headers: {
@@ -53,13 +54,18 @@ export default function Employee() {
 
     }, [router])
 
-    console.log(user_data)
+    const handle_change = (event: React.ChangeEvent<HTMLInputElement>) => {
+        event.preventDefault();
+        const {name, value} = event.target;
+    
+        set_filter(value);
+      }
+
     const tickets = user_data.attributes.tickets?.data;
     const active_tickets: JSX.Element[] = [];
     const history_tickets: JSX.Element[] = [];
 
-    const product_forms = all_products.map((product) => {
-        console.log(product);
+    const product_forms = all_products.filter((product) => filter == "" || product.attributes.Name.includes(filter)).map((product) => {
 
         const onSend = (count?: number) => {
 
@@ -134,6 +140,8 @@ export default function Employee() {
                         Создать заявку
                     </h1>
                 </div>
+
+                <input type="text" className={styles.find_application} placeholder="Начните вводить имя" value={filter} onChange={handle_change}/>
 
                 <div className={styles.Found_applications}>
                 {product_forms}

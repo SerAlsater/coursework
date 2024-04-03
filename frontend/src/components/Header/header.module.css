@@ -12,3 +12,15 @@
     border-radius: 25px;
     margin-right: 100px;
 }
+
+.exit {
+    background-color: var(--c-accent-green);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.exit:hover {
+    background-color: var(--c-accent-green2);
+}
