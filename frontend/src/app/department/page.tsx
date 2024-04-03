@@ -22,15 +22,6 @@ export default function Department() {
 
     const router = useRouter();
 
-    const cookie_user = getCookie('user_data');
-    if (!cookie_user) {
-        router.push('/auth/login')
-    }
-    if (cookie_user) {
-        const data = JSON.parse(cookie_user);
-        if (data.Role != "department") router.push('/' + data.Role);
-	}
-
     const [tickets, set_tickets] = useState<Array<api_ticket>>([]);
     const [balance, set_balance] = useState(0);
 
@@ -42,6 +33,15 @@ export default function Department() {
     }
 
     useEffect(() => {
+
+        const cookie_user = getCookie('user_data');
+        if (!cookie_user) {
+            router.push('/auth/login')
+        }
+        if (cookie_user) {
+            const data = JSON.parse(cookie_user);
+            if (data.Role != "department") router.push('/' + data.Role);
+        }
 
         axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/budget`, config).then((response) => {
             set_balance(response.data.data.attributes.Budget);

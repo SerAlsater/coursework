@@ -1,8 +1,5 @@
 "use client"
 import styles from "./employee.module.css"
-import Image from "next/image"
-import clock from "./clock.svg"
-import accept from "./accept.svg"
 import Ticket from "@/components/Ticket"
 import { useRouter } from "next/navigation"
 import { getCookie } from "cookies-next"
@@ -13,16 +10,7 @@ import axios from "axios"
 export default function Employee() {
 
     const router = useRouter();
-
-    const cookie_user = getCookie('user_data');
-    if (!cookie_user) {
-        router.push('/auth/login')
-    }
-    if (cookie_user) {
-        const data = JSON.parse(cookie_user);
-        if (data.Role != "employee") router.push('/' + data.Role);
-	}
-
+    
 
     type user_data = {
         id: number,
@@ -30,7 +18,7 @@ export default function Employee() {
     }
 
     //@ts-ignore
-    const [user_data, set_user] = useState<user_data>({id: 0, attributes: JSON.parse(cookie_user)});
+    const [user_data, set_user] = useState<user_data>({id: 0, attributes: {}});
     const [all_products, set_products] = useState<Array<product>>([]);
     const [filter, set_filter] = useState("");
 
@@ -42,6 +30,15 @@ export default function Employee() {
     }
 
     useEffect(() => {
+
+        const cookie_user = getCookie('user_data');
+        if (!cookie_user) {
+            router.push('/auth/login')
+        }
+        if (cookie_user) {
+            const data = JSON.parse(cookie_user);
+            if (data.Role != "employee") router.push('/' + data.Role);
+        }
 
         //@ts-ignore
         axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/workers?filters[Login][$eq]=${JSON.parse(cookie_user).Login}&populate=deep`, config).then((response) => {
