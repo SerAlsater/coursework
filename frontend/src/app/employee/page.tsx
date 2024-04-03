@@ -21,11 +21,12 @@ export default function Employee() {
     const [user_data, set_user] = useState<user_data>({id: 0, attributes: {}});
     const [all_products, set_products] = useState<Array<product>>([]);
     const [filter, set_filter] = useState("");
+    const [sort, set_sort] = useState(true);
 
     const config = {
         headers: {
-          "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
-          "Content-Type": "application/json"
+        "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
+        "Content-Type": "application/json"
         }
     }
 
@@ -52,17 +53,24 @@ export default function Employee() {
     }, [router])
 
     const handle_change = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.preventDefault();
-        const {name, value} = event.target;
-    
-        set_filter(value);
-      }
+    event.preventDefault();
+    const {name, value} = event.target;
+
+    set_filter(value);
+    }
+
+    const handle_sort = () => {
+        set_sort(prev => !prev);
+    }
 
     const tickets = user_data.attributes.tickets?.data;
     const active_tickets: JSX.Element[] = [];
     const history_tickets: JSX.Element[] = [];
 
-    const product_forms = all_products.filter((product) => filter == "" || product.attributes.Name.includes(filter)).map((product) => {
+    const product_forms = all_products
+    .filter((product) => filter == "" || product.attributes.Name.includes(filter))
+    .sort((a,b) => sort ? a.attributes.Price - b.attributes.Price : b.attributes.Price - a.attributes.Price)
+    .map((product) => {
 
         const onSend = (count?: number) => {
 
@@ -138,7 +146,11 @@ export default function Employee() {
                     </h1>
                 </div>
 
-                <input type="text" className={styles.find_application} placeholder="Начните вводить имя" value={filter} onChange={handle_change}/>
+                <div className={styles.actions}>
+                    <input type="text" className={styles.find_application} placeholder="Начните вводить имя" value={filter} onChange={handle_change}/>
+                    <button className={styles.sort} onClick={handle_sort}>{sort ? "🠝 " : "🠟"}</button>
+                </div>
+                
 
                 <div className={styles.Found_applications}>
                 {product_forms}

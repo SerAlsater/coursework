@@ -123,3 +123,17 @@
     margin-top: 130px;
     margin-bottom: 50px;
 }
+
+.actions {
+    display: flex;
+    align-items: stretch;
+}
+
+.sort {
+    margin-left: 20px;
+    border: none;
+    background-color: #E3E4f5;
+    width: 150px;
+    border-radius: 15px;
+    font-size: 24px;
+}
